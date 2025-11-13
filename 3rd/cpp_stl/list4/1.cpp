@@ -49,7 +49,6 @@ int main(){
 
     cout << "Czy parzyste: ";
     transform(tab, 5, is_even);
-    cout << "tab: ";
     for(int i=0; i<5; i++){
         cout << tab[i] << " ";
     }

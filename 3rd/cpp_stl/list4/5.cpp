@@ -1,9 +1,6 @@
 #include <utility>
 #include <iostream>
 #include <vector>
-#include <list>
-#include <set>
-#include <string>
 using namespace std;
 
 auto sum = []<typename T>(const auto& tab) -> T {
