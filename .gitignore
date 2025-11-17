@@ -5,6 +5,7 @@
 __pycache__/
 *.pyc
 .venv/
+data
 venv/
 build/
 .ipynb_checkpoints/
@@ -22,11 +23,3 @@ a.out
 *.o
 *.obj
 *.pkl
-1
-2
-3
-4
-5
-6
-7
-8
