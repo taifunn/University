@@ -1,7 +1,7 @@
 import mpmath as mp
 
 mp.mp.dps = 128
-def olver_step(f, fp, fpp, x):
+def olver(f, fp, fpp, x):
     fx, fpx, fppx = f(x), fp(x), fpp(x)
     return x - fx/fpx - mp.mpf('0.5')*(fppx/fpx)*(fx/fpx)**2
 
@@ -18,7 +18,7 @@ def run_test(name, f, fp, fpp, x0, N=7):
     print(f"\nTEST: {name} ")
     xs = [mp.mpf(x0)]
     for _ in range(N):
-        xs.append(olver_step(f, fp, fpp, xs[-1]))
+        xs.append(olver(f, fp, fpp, xs[-1]))
 
     print("Iteraty x_k:")
     for k, x in enumerate(xs):
@@ -29,6 +29,7 @@ def run_test(name, f, fp, fpp, x0, N=7):
     print(p_list)
     if p_list:
         print("Ostatne przyblizenie ~", p_list[-1])
+        
 def f1(x):   return x**2 - 2
 def f1p(x):  return 2*x
 def f1pp(x): return 2
