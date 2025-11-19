@@ -43,7 +43,7 @@ double falsi(int t){
 	while(t--){
 		double mian = f(r) - f(l);
 		if(mian == 0.0D) mian = 1e-16;
-		res = (r * f(r) - l * f(l))/mian;
+		res = l - f(l) * (r - l) / mian;
 		if(f(l) * f(res) < 0.0D) r = res;
 		else l = res;
 	}
