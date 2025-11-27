@@ -9,15 +9,11 @@ class person {
 public:
     string first_name;
     string last_name;
-    int age;        // lata
-    int weight;     // kg
-    double height;  // m
+    int age;
+    int weight;
+    double height;
 
-    person(const string& fn,
-           const string& ln,
-           int a,
-           int w,
-           double h)
+    person(const string& fn, const string& ln, int a, int w, double h)
         : first_name(fn), last_name(ln), age(a), weight(w), height(h) {}
 
     double bmi() const {
@@ -34,9 +30,8 @@ ostream& operator<<(ostream& os, const person& p) {
     return os;
 }
 
-// wypisanie całej kolekcji
 void print_group(const deque<person>& people, const string& title) {
-    cout << "=== " << title << " ===\n";
+    cout  << title << "\n";
     for (const auto& p : people) {
         cout << p << "\n";
     }
@@ -73,21 +68,18 @@ int main() {
 
     print_group(people, "b) Po odchudzeniu (10% mniej wagi)");
 
-    // c) podział na ciężkich (>100 kg) i lekkich (<= 100 kg)
-    // użyjemy stable_partition z lambdą jako predykatem
-    auto it_first_light = stable_partition(
+    auto it_groups = stable_partition(
         people.begin(), people.end(),
         [](const person& p) {
-            return p.weight > 100;  // TRUE -> ciężcy na początku
+            return p.weight > 100;
         });
 
-    deque<person> heavy(people.begin(), it_first_light);
-    deque<person> light(it_first_light, people.end());
+    deque<person> heavy(people.begin(), it_groups);
+    deque<person> light(it_groups, people.end());
 
     print_group(heavy, "c) Grupa ciezka (waga > 100 kg)");
     print_group(light, "c) Grupa lekka (waga <= 100 kg)");
 
-    // d) osoba najstarsza i najmłodsza (bez sortowania)
     auto [it_min_age, it_max_age] = minmax_element(
         people.begin(), people.end(),
         [](const person& a, const person& b) {

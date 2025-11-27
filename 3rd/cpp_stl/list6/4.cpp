@@ -18,25 +18,24 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    array<size_t, 26> counts{};
-    counts.fill(0);
-
-    size_t total_letters = 0;
+    int counts[26] = {0};
+    int total_letters = 0;
 
     istreambuf_iterator<char> it(file);
     istreambuf_iterator<char> end;
 
-    for (; it != end; ++it) {
-        unsigned char ch = static_cast<unsigned char>(*it);
+    while(it != end) {
+        char ch = *it;
 
         if (isalpha(ch)) {
-            ch = static_cast<unsigned char>(toupper(ch));
+            ch = toupper(ch);
 
             if (ch >= 'A' && ch <= 'Z') {
                 counts[ch - 'A']++;
                 total_letters++;
             }
         }
+        it++;
     }
 
     if (total_letters == 0) {
@@ -44,7 +43,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    cout << "Histogram czestosci liter (tylko A-Z):\n\n";
+    cout << "Czestosc liter:\n\n";
     for (int i = 0; i < 26; ++i) {
         char letter = 'A' + i;
         double freq = static_cast<double>(counts[i]) / static_cast<double>(total_letters);
@@ -55,7 +54,7 @@ int main(int argc, char* argv[]) {
                   << fixed << setprecision(4) << freq
                   << "  (" << counts[i] << ")\t";
 
-        for (int s = 0; s < stars; ++s) {
+        for (int s = 0; s < stars; s++) {
             cout << '*';
         }
         cout << '\n';
