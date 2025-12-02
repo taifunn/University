@@ -20,7 +20,7 @@ async def koci_obrazek(session):
     async with session.get(url, headers=headers, params=params) as resp:
         data = await resp.json()
         if not data:
-            print("Brak danych z TheCatAPI :(")
+            print("Brak danych z TheCatAPI")
             return
 
         obrazek_url = data[0].get("url")
