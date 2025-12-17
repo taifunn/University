@@ -5,7 +5,7 @@
 using namespace std;
 using cd = complex<double>;
 
-const double euler_gamma = 0.57721566490153286060;
+const double euler_gamma = 0.5772156649;
 
 cd gamma_euler(cd z, int N){
     cd prod(1.0, 0.0);
@@ -36,6 +36,6 @@ int main(){
         cout << "z: " << z << "\n";
         cout << "Gamma(z): " << gamma_val << "\n";
         cout << "1/Gamma(z): " << inv_gamma_val << "\n";
-        cout << "Product: " << gamma_val * inv_gamma_val << "\n\n";
+        cout << "iloczyn: " << gamma_val * inv_gamma_val << "\n\n";
     }
 }

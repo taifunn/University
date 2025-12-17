@@ -21,7 +21,7 @@ int main(){
 
     std::cout << "a = " << a << "\n";
 
-    auto log = [](int){ std::cout << "[log]\n"; };
+    auto log = [](int){ std::cout << "tiriri\n"; };
     auto all = po_kolei(h, log); 
     all(a);
 
