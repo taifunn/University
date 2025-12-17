@@ -71,11 +71,6 @@ def main():
     eur_monthly = monthly_mean(eur_all)
     btc_monthly = monthly_mean(btc_all)
 
-    print("EUR miesięczne (kilka pierwszych):")
-    print(eur_monthly.head())
-    print("\nBTC miesięczne (kilka pierwszych):")
-    print(btc_monthly.head())
-
     months = list(range(1, 13))
     eur_forecast = forecast_by_average(eur_monthly, year1, year2)
     btc_forecast = forecast_by_average(btc_monthly, year1, year2)

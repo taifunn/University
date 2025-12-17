@@ -16,6 +16,8 @@ build/
 out/
 a.out
 *.out
+output/
+binomial.ods
 *.exe
 *.dll
 *.so
